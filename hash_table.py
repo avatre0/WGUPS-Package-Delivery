@@ -65,7 +65,11 @@ class HashMap:
         return arr
 
     # Print All items in hash map
-    def print(self):
+    def return_all_items(self):
+        item_list = []
         for item in self.map:
             if item is not None:
-                print(str(item))
+                for key_item_pair in item:
+                    item_list.append(key_item_pair[1])
+
+        return item_list

@@ -2,8 +2,8 @@
 
 class HashMap:
     # Constructor
-    # Has default size of 40, but can create any size
-    def __init__(self, init_cap=40):
+    # Has default size of 32, but can create any size
+    def __init__(self, init_cap=32):
         self.size = init_cap
         self.map = [None] * self.size
 

@@ -15,6 +15,7 @@ class Package:
         self.status = status
 
     # Sets the package delivery status based on the input time
+    # O(n)
     def package_delivery_status_at_time(self, requested_time):
         if requested_time < self.loading_time:
             self.status = "AT HUB"

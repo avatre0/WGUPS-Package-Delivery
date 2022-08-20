@@ -12,9 +12,11 @@ class Truck:
         self.current_time = time(8, 0, 0)
 
     # Adds the package to the list
+    # 0(1)
     def load_package(self, package):
         self.capacity.append(package)
 
     # Removes the package from the list
+    # O(1)
     def package_delivered(self, package):
         self.capacity.remove(package)

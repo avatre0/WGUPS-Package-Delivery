@@ -3,11 +3,13 @@
 class HashMap:
     # Constructor
     # Has default size of 32, but can create any size
+    # O(n)
     def __init__(self, init_cap=32):
         self.size = init_cap
         self.map = [None] * self.size
 
     # Hashes the key
+    # O(n)
     def _get_hash(self, key):
         hash = 0
         for char in str(key):
@@ -16,6 +18,7 @@ class HashMap:
 
     # Adds Key/Value pare to the hash map
     # also updates the value if it has the same keys
+    # O(n)
     def add(self, key, value):
         key_hash = self._get_hash(key)
         key_value = [key, value]
@@ -35,6 +38,7 @@ class HashMap:
 
     # Return the Value of a key if found
     # Returns nothing if key is not found
+    # O(n)
     def get(self, key):
         key_hash = self._get_hash(key)
         if self.map[key_hash] is not None:
@@ -45,6 +49,7 @@ class HashMap:
 
     # Removes key/value from map if found
     # Returns false if not found
+    # O(n)
     def delete(self, key):
         key_hash = self._get_hash(key)
 
@@ -57,6 +62,7 @@ class HashMap:
         return False
 
     # Returns an array of keys in the hashmap
+    # O(n)
     def keys(self):
         arr = []
         for i in range(0, len(self.map)):
@@ -65,6 +71,7 @@ class HashMap:
         return arr
 
     # Print All items in hash map
+    # O(n^2)
     def return_all_items(self):
         item_list = []
         for item in self.map:

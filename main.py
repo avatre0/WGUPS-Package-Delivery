@@ -9,6 +9,7 @@ from datetime import datetime, date, time, timedelta
 
 
 # Reads package data from a supplied CSV File
+# O(n)
 def read_package_data(fileName):
     # Open the file
     with open(fileName) as packageData:
@@ -30,6 +31,7 @@ def read_package_data(fileName):
 
 
 # opens the distance file and turns it into a addressable 2d list
+# O(1)
 def read_distance_data(fileName):
     with open(fileName) as distanceData:
         distanceList = list(csv.reader(distanceData, delimiter=','))
@@ -37,6 +39,7 @@ def read_distance_data(fileName):
 
 
 # opens the address list file and turns it into a addressable 2d list
+# O(1)
 def read_address_data(fileName):
     with open(fileName) as addressData:
         addressList = list(csv.reader(addressData, delimiter=','))
@@ -45,6 +48,7 @@ def read_address_data(fileName):
 
 # Finds distance between two indexes on the distance table
 # takes the addresses in as indexes of the table
+# O(1)
 def distance_between(row, col):
     distance = distanceList[row][col]
     # Since half of the CSV is blank need to check for the mirrored solution
@@ -55,7 +59,8 @@ def distance_between(row, col):
 
 
 # Greedy algo implementation
-# Takes in a truck object and returns the next package that should be delivered that is in the truck
+# Takes in a truck object and returns the next package that should be delivered that is in the truck)
+# O(n)
 def find_next_shortest_delivery(truck):
     package_list = truck.capacity  # List of packages on the truck
     current_address_index = addressDic.get(truck.location)  # Gets the index of the current truck location
@@ -81,6 +86,7 @@ def find_next_shortest_delivery(truck):
 
 # Creates a dictionary of addresses and address indexes
 # Address : address index
+# O(n)
 def create_address_dic():
     address_dic = {}
     for address in addressList:
@@ -89,6 +95,7 @@ def create_address_dic():
 
 
 # Loads the truck with the list of package id's
+# O(n)
 def load_truck(truck, packages_to_load):
     for package in packages_to_load:
         truck.load_package(packageHash.get(package))
@@ -97,6 +104,7 @@ def load_truck(truck, packages_to_load):
 
 
 # Delivers a package on the passed in truck
+# O(1)
 def deliver_package(truck):
     # Finds the next shortest Delivery on the truck ( Greedy Algo)
     package = find_next_shortest_delivery(truck)
@@ -134,6 +142,7 @@ def deliver_package(truck):
 
 
 # Returns the truck to the hub
+# O(1)
 def return_to_hub(truck):
     current_address = truck.location
     current_address_index = addressDic[current_address]
@@ -167,7 +176,7 @@ addressDic = create_address_dic()  # creates a dictionary of address data
 # List of packages ID's to be loaded on trucks
 package_truck1_keys = [1, 13, 14, 15, 16, 20, 34, 37, 40, 29, 30, 21, 4, 5, 7, 8]
 package_truck2_keys = [6, 25, 28, 32, 31, 3, 18, 36, 38, 26]
-package_truck3_keys = [10, 11, 9, 23, 24, 27, 33, 35, 2, 12, 19, 17, 39, 22]
+package_truck3_keys = 2
 
 # Creation of truck objects
 truck1 = Truck("truck1")

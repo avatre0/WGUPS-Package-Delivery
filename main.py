@@ -176,7 +176,7 @@ addressDic = create_address_dic()  # creates a dictionary of address data
 # List of packages ID's to be loaded on trucks
 package_truck1_keys = [1, 13, 14, 15, 16, 20, 34, 37, 40, 29, 30, 21, 4, 5, 7, 8]
 package_truck2_keys = [6, 25, 28, 32, 31, 3, 18, 36, 38, 26]
-package_truck3_keys = 2
+package_truck3_keys = [10, 11, 9, 23, 24, 27, 33, 35, 2, 12, 19, 17, 39, 22]
 
 # Creation of truck objects
 truck1 = Truck("truck1")

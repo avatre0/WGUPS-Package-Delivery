@@ -104,10 +104,10 @@ def load_truck(truck, packages_to_load):
 
 
 # Delivers a package on the passed in truck
-# O(1)
+# O(n)
 def deliver_package(truck):
     # Finds the next shortest Delivery on the truck ( Greedy Algo)
-    package = find_next_shortest_delivery(truck)
+    package = find_next_shortest_delivery(truck) # O(n)
 
     # Finds the delivery index of the package's address
     delivery_address = package.address

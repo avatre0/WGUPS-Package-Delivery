@@ -107,7 +107,7 @@ def load_truck(truck, packages_to_load):
 # O(n)
 def deliver_package(truck):
     # Finds the next shortest Delivery on the truck ( Greedy Algo)
-    package = find_next_shortest_delivery(truck) # O(n)
+    package = find_next_shortest_delivery(truck)  # O(n)
 
     # Finds the delivery index of the package's address
     delivery_address = package.address
@@ -246,11 +246,13 @@ while user_input != "3":
         # Set the delivery status to what it would be at that time
         user_package_selection.package_delivery_status_at_time(user_time)
         # Print the status for that package
-        print("Package ID ".ljust(15) + "Package Address".ljust(40) + "Deadline".ljust(10) + "Delivery Time".ljust(
+        print("Package ID ".ljust(15) + "Package Address".ljust(40) + "City".ljust(20) + "Zip".ljust(
+            10) + "Weight".ljust(10) + "Deadline".ljust(10) + "Delivery Time".ljust(
             15) + "Status".ljust(10))
-        print(str(user_package_selection.id).ljust(15) + user_package_selection.address.ljust(40) + str(
-            user_package_selection.delivery_deadline).ljust(10) + str(user_package_selection.delivered_time).ljust(
-            15) + user_package_selection.status)
+        print(str(user_package_selection.id).ljust(15) + user_package_selection.address.ljust(40) +
+              user_package_selection.city.ljust(20) + user_package_selection.zip.ljust(10) +
+              user_package_selection.mass.ljust(10) + str(user_package_selection.delivery_deadline).ljust(10) +
+              str(user_package_selection.delivered_time).ljust(15) + user_package_selection.status)
 
     # If the user wants to see all packages
     if user_input == "2":
@@ -263,11 +265,12 @@ while user_input != "3":
         # Get all the packages from the hash table
         all_package_list = packageHash.return_all_items()
         # Print the header
-        print("Package ID ".ljust(15) + "Package Address".ljust(40) + "Deadline".ljust(10) + "Delivery Time".ljust(
-            415) + "Status".ljust(10))
+        print("Package ID ".ljust(15) + "Package Address".ljust(40) + "City".ljust(20) + "Zip".ljust(
+            10) + "Weight".ljust(10) + "Deadline".ljust(10) + "Delivery Time".ljust(
+            15) + "Status".ljust(10))
         # Loop through all the packages and print the status out at that time
         for package in all_package_list:
             package.package_delivery_status_at_time(user_time)
-            print(
-                str(package.id).ljust(15) + package.address.ljust(40) + str(package.delivery_deadline).ljust(10) + str(
+            print(str(package.id).ljust(15) + package.address.ljust(40) + package.city.ljust(20) + package.zip.ljust(10)
+                  + package.mass.ljust(10) + str(package.delivery_deadline).ljust(10) + str(
                     package.delivered_time).ljust(15) + package.status)
